@@ -19,12 +19,13 @@ var main = function (input) {
         return output;
 
     }
+    
     //  now that we have username, proceed to play
 
     if (gameMode == 'choose a gamemode') {
         gameMode = input.toLowerCase();
         if (gameMode == 'normal' || gameMode == 'reverse') {
-            output = `Hello ${userName}, you have selected ${gameMode}`;
+            output = `Hello ${userName}, you have selected ${gameMode},start playing by clicking one of the three icons above`;
         } else {
             output = `Hello ${userName}, your selected ${gameMode} is NOT available`;
         }
@@ -46,6 +47,7 @@ var main = function (input) {
 
     output = `The computer chose ${computerChoice} <br>
     You chose ${playerChoice} <br>
+    ${outcome}! Bummer. <br>
     So far ${userName} you've been winning ${playerWinTally}/${totalTally}`;
 
 };
@@ -67,8 +69,8 @@ possibleChoices.forEach(possibleChoices => possibleChoices.addEventListener(`cli
     playerChoice = e.target.id;
     playerChoiceDisplay.innerHTML = playerChoice;
     generateComputerChoice();
-    normalGame(playerChoice, computerChoice);
-    reverseGame(playerChoice, computerChoice);
+    normalGame(playerChoice,computerChoice);
+    reverseGame(playerChoice,computerChoice);
 }));
 
 
@@ -97,34 +99,42 @@ var normalGame = function () {
     if (playerChoice == 'rock' && computerChoice == 'scissors') {
         result = `Congratulations, You have won this round!`
         playerWinTally++;
+        
     }
     if (playerChoice == 'paper' && computerChoice == 'rock') {
         result = `Congratulations, You have won this round!`
         playerWinTally++;
+        
     }
     if (playerChoice == 'scissors' && computerChoice == 'paper') {
         result = `Congratulations, You have won this round!`
         playerWinTally++;
+        
     }
 
     if (playerChoice == computerChoice) {
         result = `It's a draw!`
+        
     }
 
     else if (computerChoice == 'rock' && playerChoice == 'scissors') {
         result = `You've lost this time! Try again & better luck next time`
         compWinTally++;
+        
     }
     else if (computerChoice == 'paper' && playerChoice == 'rock') {
         result = `You've lost this time! Try again & better luck next time`
         compWinTally++;
+        
     }
     else if (computerChoice == 'scissors' && playerChoice == 'paper') {
         result = `You've lost this time! Try again & better luck next time`
         compWinTally++;
+        
     }
 
     showResult.innerHTML = result;
+    main();
 };
 
 var reverseGame = function () {
@@ -132,35 +142,42 @@ var reverseGame = function () {
     if (playerChoice == 'scissors' && computerChoice == 'rock') {
         result = `Congratulations, You have won this round!`
         playerWinTally++;
+        
     }
     if (playerChoice == 'rock' && computerChoice == 'paper') {
         result = `Congratulations, You have won this round!`
         playerWinTally++;
+        
     }
     if (playerChoice == 'paper' && computerChoice == 'scissors') {
         result = `Congratulations, You have won this round!`
         playerWinTally++;
+        
     }
 
     if (playerChoice == computerChoice) {
         result = `It's a draw!`
+    
     }
 
     else if (computerChoice == 'scissors' && playerChoice == 'rock') {
         result = `You've lost this time! Try again & better luck next time`
         compWinTally++;
+        
     }
 
     else if (computerChoice == 'rock' && playerChoice == 'paper') {
         result = `You've lost this time! Try again & better luck next time`
         compWinTally++;
+        
     }
 
     else if (computerChoice == 'paper' && playerChoice == 'scissors') {
         result = `You've lost this time! Try again & better luck next time`
         compWinTally++;
+        
     }
 
     showResult.innerHTML = result;
-
+    main();
 };
