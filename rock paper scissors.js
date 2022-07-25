@@ -1,6 +1,3 @@
-// input is going to be scissors ,paper or stone
-
-// output is going to be who wins or lose the round
 
 // input and identify the player name 
 var gameMode = "waiting for username"
@@ -10,11 +7,11 @@ var computerWinTally = 0;
 var totalTally = 0;
 
 var main = function (input) {
-    var output = '';
-    var outcome = '';
+    var output = ''; //  show  resultof entering inputs  such as username  and gamemode
+    var outcome = ''; //  show the game mode that player is in
 
     if (gameMode == `waiting for username`) {
-        // if the game mode is user name ...set name as input
+        // if the gamemode is waiting for username ...set name as input
         userName = input;
         gameMode = 'choose a gamemode'
         output = `Hello ${userName},choose your game [normal, reverse]`
@@ -37,7 +34,7 @@ var main = function (input) {
 
     console.log(`player input: ${playerChoice}`);
     console.log(`computer input:${computerChoice}`);
-    totalTally++;
+    totalTally++; // counts the total number of games that has been played
 
     if (gameMode.toLowerCase() == "normal") {
         outcome = normalGame(playerChoice, computerChoice);
