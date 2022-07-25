@@ -29,7 +29,7 @@ var main = function (input) {
         if (gameMode == 'normal' || gameMode == 'reverse') {
             output = `Hello ${userName}, you have selected ${gameMode}`;
         } else {
-            output = `Hello ${userName}, you have selected ${gameMode} which is NOT available`;
+            output = `Hello ${userName}, your selected ${gameMode} is NOT available`;
         }
 
         return output;
@@ -46,6 +46,10 @@ var main = function (input) {
     else if (gameMode.toLowerCase() == "reverse") {
         outcome = reverseGame(playerChoice, computerChoice);
     }
+
+    output = `The computer chose ${computerChoice} <br>
+    You chose ${playerChoice} <br>
+    So far ${userName} you've been winning ${playerWinTally}/${totalTally}`;
 
 };
 
